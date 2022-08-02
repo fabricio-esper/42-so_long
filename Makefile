@@ -1,17 +1,17 @@
-NAME	= so_long.a
+NAME	= long.a
 
 CFLAGS	= -Wall -Werror -Wextra
 
-SRCS	= ./srcs/so_long.c
+SRCS	= 
 
-OBJS	= $(SRCS:.c.o)
+OBJS	= $(SRCS:.c=.o)
 
 .c.o:
-			cc $(CFLAGS) -c $< -o $(<:.c=.o) -I ./include
+			cc $(CFLAGS) -c $< -o $(<:.c=.o) -I ./
 
 $(NAME):	$(OBJS)
 			make -C ./libft
-			cp ./libft/libft.a $(NAME)
+			cp ./libft/libft.a ./$(NAME)
 			ar rcs $(NAME) $(OBJS)
 
 all:		$(NAME)
