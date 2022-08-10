@@ -1,24 +1,24 @@
-NAME	= long.a
+NAME	= so_long
 
 CFLAGS	= -Wall -Werror -Wextra
 
-SRCS	= 
+OFLAGS = -Wall -Werror -Wextra -L ./minilibx -lmlx -framework OpenGL -framework AppKit
+
+SRCS	= ./so_long.c
 
 OBJS	= $(SRCS:.c=.o)
 
-.c.o:
-			cc $(CFLAGS) -c $< -o $(<:.c=.o) -I ./
-
 $(NAME):	$(OBJS)
 			make -C ./libft
-			cp ./libft/libft.a ./$(NAME)
-			ar rcs $(NAME) $(OBJS)
+			make -C ./minilibx
+			cc $(OFLAGS) $^ -o $@
 
 all:		$(NAME)
 
 clean:
 			rm -f $(OBJS)
 			make clean -C ./libft
+			make clean -C ./minilibx
 
 fclean:		clean
 			rm -f $(NAME)

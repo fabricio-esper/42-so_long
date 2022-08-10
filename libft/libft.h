@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:08:09 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/02 14:32:40 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/05 09:52:41 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ int		ft_printf_i(int i);
 int		ft_printf_ud(unsigned int ud);
 int		ft_printf_x(unsigned long x);
 int		ft_printf_xu(unsigned int xu);
+char	*get_next_line(int fd);
 
 #endif
