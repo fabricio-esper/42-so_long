@@ -1,8 +1,10 @@
 NAME	= so_long
 
+LIBFT	= ./libft/libft.a
+
 CFLAGS	= -Wall -Werror -Wextra
 
-OFLAGS = -Wall -Werror -Wextra -L ./minilibx -lmlx -framework OpenGL -framework AppKit
+OFLAGS	= -Wall -Werror -Wextra -L ./minilibx -lmlx -framework OpenGL -framework AppKit
 
 SRCS	= ./so_long.c
 
@@ -11,7 +13,7 @@ OBJS	= $(SRCS:.c=.o)
 $(NAME):	$(OBJS)
 			make -C ./libft
 			make -C ./minilibx
-			cc $(OFLAGS) $^ -o $@
+			cc $(OFLAGS) $^ $(LIBFT) -o $@
 
 all:		$(NAME)
 

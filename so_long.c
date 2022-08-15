@@ -6,29 +6,46 @@
 /*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:27:47 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/12 10:27:12 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/15 14:57:29 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	create_window(void)
+{
+	void	*connectid;
+	void	*window;
+
+	connectid = mlx_init();
+	window = mlx_new_window(connectid, 800, 800, "so_long");
+	mlx_loop(connectid);
+}
+
 int	main(int argc, char **argv)
 {
-	void	*retinit;
-	void	*retnew;
-	int		i;
+	int		mapfd;
+	char	*line;
 
-	(void) argc;
-	(void) argv;
-	retinit = mlx_init();
-	retnew = mlx_new_window(retinit, 800, 800, "so_long");
-	i = -1;
-	while (++i < 800)
-		mlx_pixel_put(retinit, retnew, 457, i, 0xff0000);
-	i = -1;
-	while (++i < 800)
-		mlx_pixel_put(retinit, retnew, 459, i, 0xffffff);
-	mlx_string_put(retinit, retnew, 255, 255, 0xffffff, "REDBULL");
-	mlx_loop(retinit);
+	if (argc == 2)
+	{
+		if (ft_strnstr(argv[1], ".ber", 4))
+		{
+			mapfd = open(argv[1], O_RDONLY);
+			line = get_next_line(mapfd);
+			ft_printf("%s\n", line);
+			create_window();
+		}
+		else
+		{
+			ft_printf("Invalid file extension\n");
+			return (2);
+		}
+	}
+	else
+	{
+		ft_printf("Invalid number of arguments\n");
+		return (1);
+	}
 	return (0);
 }
