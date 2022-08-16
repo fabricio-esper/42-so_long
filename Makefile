@@ -6,7 +6,7 @@ CFLAGS	= -Wall -Werror -Wextra
 
 OFLAGS	= -Wall -Werror -Wextra -L ./minilibx -lmlx -framework OpenGL -framework AppKit
 
-SRCS	= ./so_long.c
+SRCS	= ./so_long.c ./utils.c
 
 OBJS	= $(SRCS:.c=.o)
 
