@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:13:05 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/17 12:50:28 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/17 13:48:37 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,7 @@ char	**check_map(int fd, t_map *layout)
 	full_map = join_map(fd, layout, full_map);
 	split_map = ft_split(full_map, '\n');
 	if (!split_map)
-	{
-		ft_printf("SPLIT FAILED");
-		return (0);
-	}
+		split_error();
 	free(full_map);
 	return (split_map);
 }

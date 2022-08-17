@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:30:31 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/17 12:38:38 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/17 13:11:57 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int		count_char(char	*str, int c);
 void	file_error(void);
 void	filetype_error(void);
 void	layout_error(void);
+void	split_error(void);
 
 #endif
