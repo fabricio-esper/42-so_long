@@ -6,9 +6,12 @@ CFLAGS	= -Wall -Werror -Wextra
 
 OFLAGS	= -Wall -Werror -Wextra -L ./minilibx -lmlx -framework OpenGL -framework AppKit
 
-SRCS	= ./so_long.c ./utils.c ./error.c ./map.c
+SRCS	= ./src/so_long.c ./src/utils.c ./src/error.c ./src/map.c ./src/window.c
 
 OBJS	= $(SRCS:.c=.o)
+
+.c.o:
+			cc $(CFLAGS) -c $< -o $(<:.c=.o) -I ./inc
 
 $(NAME):	$(OBJS)
 			make -C ./libft

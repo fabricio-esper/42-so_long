@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:27:47 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/17 12:51:45 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:02:17 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,14 @@
 int	main(int argc, char **argv)
 {
 	t_map	layout;
+	t_game	game;
 	char	**map;
-	int		i;
 
 	if (argc == 2)
 	{
 		map = read_map(argv[1], &layout);
-		i = 0;
-		while (map[i])
-		{
-			ft_printf("%s\n", map[i]);
-			i++;
-		}
+		if (map)
+			create_window(&game, &layout, map);
 	}
 	else
 	{
