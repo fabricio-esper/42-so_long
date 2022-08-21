@@ -3,18 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabricio <fabricio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:30:31 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/18 14:30:13 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:46:29 by fabricio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# ifndef __linux__
+#	include "../mlx_linux/mlx.h"
+# else
+#	include "../mlx/mlx.h"
+# endif
+
 # include "../libft/libft.h"
-# include "../minilibx/mlx.h"
 # include <fcntl.h>
 # include <string.h>
 

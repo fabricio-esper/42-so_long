@@ -4,26 +4,32 @@ LIBFT	= ./libft/libft.a
 
 CFLAGS	= -Wall -Werror -Wextra
 
-OFLAGS	= -Wall -Werror -Wextra -L ./minilibx -lmlx -framework OpenGL -framework AppKit
-
 SRCS	= ./src/so_long.c ./src/utils.c ./src/error.c ./src/map.c ./src/window.c
 
 OBJS	= $(SRCS:.c=.o)
+
+OS		= $(shell uname)
+
+ifeq ($(OS), Linux)
+	OFLAGS	= $(CFLAGS) -L ./mlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+	MLX		= ./mlx_linux
+else
+	OFLAGS	= $(CFLAGS) -L ./mlx -lmlx -framework OpenGL -framework AppKit
+	MLX		= ./mlx
+endif
 
 .c.o:
 			cc $(CFLAGS) -c $< -o $(<:.c=.o) -I ./inc
 
 $(NAME):	$(OBJS)
-			make -C ./libft
-			make -C ./minilibx
-			cc $(OFLAGS) $^ $(LIBFT) -o $@
+			make -C ./libft && make -C $(MLX)
+			cc $^ $(OFLAGS) $(LIBFT) -o $@
 
 all:		$(NAME)
 
 clean:
 			rm -f $(OBJS)
-			make clean -C ./libft
-			make clean -C ./minilibx
+			make clean -C ./libft && make clean -C $(MLX)
 
 fclean:		clean
 			rm -f $(NAME)

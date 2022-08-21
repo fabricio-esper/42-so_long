@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabricio <fabricio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:27:47 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/18 14:02:17 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:56:16 by fabricio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	{
 		map = read_map(argv[1], &layout);
 		if (map)
-			create_window(&game, &layout, map);
+			create_window(&game, &layout);
 	}
 	else
 	{
