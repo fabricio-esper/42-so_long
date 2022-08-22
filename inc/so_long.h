@@ -13,7 +13,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# ifndef __linux__
+# ifdef __linux__
 #	include "../mlx_linux/mlx.h"
 # else
 #	include "../mlx/mlx.h"
