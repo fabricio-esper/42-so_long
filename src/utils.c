@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabricio <fabricio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 10:26:15 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/23 09:13:08 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/23 19:05:19 by fabricio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ void	put_entity(char map, t_game *game, int i, int j)
 {
 	game->px_position = j;
 	game->py_position = i;
-	if (map == '0' || map == '1' || map == 'P' \
-		|| map == 'E' || map == 'C' || map == 'Y')
+	if (map == '0')
 		mlx_put_image_to_window(game->connectid, game->window, \
 			game->grass, j * SIZE, i * SIZE);
 	if (map == '1')
