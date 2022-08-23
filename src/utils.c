@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 10:26:15 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/22 14:41:47 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/23 09:13:08 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int	count_char(char *str, int c)
 
 void	put_entity(char map, t_game *game, int i, int j)
 {
+	game->px_position = j;
+	game->py_position = i;
 	if (map == '0' || map == '1' || map == 'P' \
 		|| map == 'E' || map == 'C' || map == 'Y')
 		mlx_put_image_to_window(game->connectid, game->window, \
@@ -82,13 +84,11 @@ void	put_entity(char map, t_game *game, int i, int j)
 			game->rock, j * SIZE, i * SIZE);
 	if (map == 'P')
 		mlx_put_image_to_window(game->connectid, game->window, \
-			game->player, j * SIZE, i * SIZE);
+			game->player, game->px_position * SIZE, \
+			game->py_position * SIZE);
 	if (map == 'C')
 		mlx_put_image_to_window(game->connectid, game->window, \
 			game->key, j * SIZE, i * SIZE);
-	if (map == 'Y')
-		mlx_put_image_to_window(game->connectid, game->window, \
-			game->skull, j * SIZE, i * SIZE);
 	if (map == 'E')
 		mlx_put_image_to_window(game->connectid, game->window, \
 			game->chest, j * SIZE, i * SIZE);

@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:30:31 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/22 14:41:11 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/23 08:10:01 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,9 @@ typedef struct s_game
 	void	*grass;
 	void	*rock;
 	void	*key;
-	void	*skull;
 	void	*chest;
+	int		px_position;
+	int		py_position;
 	int		height;
 	int		width;
 }				t_game;
@@ -70,6 +71,8 @@ void	create_window(char **map, t_game *game, t_map *layout);
 void	put_layout(char **map, t_game *game);
 void	get_imgs(t_game *game);
 void	put_entity(char map, t_game *game, int i, int j);
+int		key_event(int key, t_game *game);
+t_game	game_reset(void);
 void	file_error(void);
 void	filetype_error(void);
 void	layout_error(void);

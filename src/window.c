@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:30:30 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/22 14:41:29 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/23 13:46:15 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	get_imgs(t_game *game)
 		"./img/player.xpm", &size, &size);
 	game->key = mlx_xpm_file_to_image(game->connectid, \
 		"./img/key.xpm", &size, &size);
-	game->skull = mlx_xpm_file_to_image(game->connectid, \
-		"./img/skull.xpm", &size, &size);
 	game->chest = mlx_xpm_file_to_image(game->connectid, \
 		"./img/chest.xpm", &size, &size);
 }
@@ -45,8 +43,42 @@ void	put_layout(char **map, t_game *game)
 	}
 }
 
+int	key_event(int key, t_game *game)
+{
+	int	size;
+
+	size = SIZE;
+	if (key == RIGHT_KEY)
+	{
+		ft_printf("text");
+		game->px_position++;
+	}
+	if (key == ESC)
+	{
+		ft_printf("Game closed\n");
+		exit(0);
+	}
+	mlx_destroy_image(game->connectid, game->player);
+	game->player = mlx_xpm_file_to_image(game->connectid, "./img/player.xpm", &size, &size);
+	mlx_put_image_to_window(game->connectid, game->window, game->player, \
+		game->px_position * SIZE, game->py_position * SIZE);
+	return (0);
+}
+
+t_game	game_reset(void)
+{
+	t_game	game;
+
+	game.px_position = 0;
+	game.py_position = 0;
+	game.width = 0;
+	game.height = 0;
+	return (game);
+}
+
 void	create_window(char **map, t_game *game, t_map *layout)
 {
+	*game = game_reset();
 	game->width = layout->width * SIZE;
 	game->height = layout->height * SIZE;
 	game->connectid = mlx_init();
@@ -54,5 +86,6 @@ void	create_window(char **map, t_game *game, t_map *layout)
 		"so_long");
 	get_imgs(game);
 	put_layout(map, game);
+	mlx_key_hook(game->window, key_event, game);
 	mlx_loop(game->connectid);
 }
