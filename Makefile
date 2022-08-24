@@ -8,9 +8,9 @@ SRCS	= ./src/so_long.c ./src/utils.c ./src/error.c ./src/map.c ./src/window.c
 
 OBJS	= $(SRCS:.c=.o)
 
-OS		= $(shell uname)
+UNAME	:= $(shell uname)
 
-ifeq ($(OS), Linux)
+ifeq ($(UNAME), Linux)
 	OFLAGS	= $(CFLAGS) -L ./mlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 	MLX		= ./mlx_linux
 else
