@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabricio <fabricio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:30:31 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/24 14:38:28 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/24 18:26:26 by fabricio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,18 @@
 
 # define SIZE 32
 
+# ifdef __linux__
+
+enum e_keycode
+{
+	UP_KEY = 119,
+	DOWN_KEY = 115,
+	LEFT_KEY = 97,
+	RIGHT_KEY = 100,
+	ESC = 65307
+};
+# else
+
 enum e_keycode
 {
 	UP_KEY = 13,
@@ -33,6 +45,7 @@ enum e_keycode
 	RIGHT_KEY = 2,
 	ESC = 53
 };
+# endif
 
 typedef struct s_map
 {
