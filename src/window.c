@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabricio <fabricio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:30:30 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/24 14:38:40 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/28 12:09:30 by fabricio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	key_event(int key, t_game *game)
 	if (key == ESC)
 	{
 		ft_printf("Game closed\n");
-		exit(0);
+		exit(EXIT_SUCCESS);
 	}
 	return (0);
 }
