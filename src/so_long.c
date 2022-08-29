@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:27:47 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/29 08:11:02 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/29 17:57:04 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		map = read_map(argv[1], &layout);
+		game = game_reset();
 		game.coin = layout.coin;
 		game.exit = layout.exit;
 		if (map)

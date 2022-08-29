@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:45:03 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/29 13:33:45 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/29 18:00:13 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+t_game	game_reset(void)
+{
+	t_game	game;
+
+	game.px_position = 0;
+	game.py_position = 0;
+	game.coin = 0;
+	game.exit = 0;
+	game.steps = 0;
+	game.height = 0;
+	game.width = 0;
+	return (game);
+}
 
 void	get_imgs(t_game *game)
 {
