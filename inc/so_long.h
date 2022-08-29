@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabricio <fabricio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:30:31 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/24 18:26:26 by fabricio         ###   ########.fr       */
+/*   Updated: 2022/08/29 13:56:24 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ typedef struct s_game
 	int		px_position;
 	int		py_position;
 	int		coin;
+	int		exit;
+	int		steps;
 	int		height;
 	int		width;
 }				t_game;
@@ -90,9 +92,13 @@ void	put_entity(char map, t_game *game, int i, int j);
 int		key_event(int key, t_game *game);
 char	**map_backup(char **map);
 void	move(t_game *game, int dir);
+void	put_param(t_game *game, char *param, int x, int y);
+void	key_direction(t_game *game, int dir);
+void	one_direction(t_game *game, int y, int x);
 void	file_error(void);
 void	filetype_error(void);
 void	layout_error(void);
 void	split_error(void);
+int		close_win_x(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 10:26:15 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/24 14:37:36 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/29 09:36:38 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,32 +71,37 @@ int	count_char(char *str, int c)
 	return (rep);
 }
 
+void	put_param(t_game *game, char *param, int x, int y)
+{
+	mlx_put_image_to_window(game->connectid, game->window, \
+		param, x, y);
+}
+
 void	put_entity(char map, t_game *game, int i, int j)
 {
 	if (map == '0')
-		mlx_put_image_to_window(game->connectid, game->window, \
-			game->grass, j * SIZE, i * SIZE);
+		put_param(game, game->grass, j * SIZE, i * SIZE);
 	if (map == '1')
-		mlx_put_image_to_window(game->connectid, game->window, \
-			game->rock, j * SIZE, i * SIZE);
+		put_param(game, game->rock, j * SIZE, i * SIZE);
 	if (map == 'P')
 	{
 		game->px_position = j;
 		game->py_position = i;
-		mlx_put_image_to_window(game->connectid, game->window, \
-			game->player, game->px_position * SIZE, \
+		put_param(game, game->player, game->px_position * SIZE, \
 			game->py_position * SIZE);
 	}
 	if (map == 'C')
-		mlx_put_image_to_window(game->connectid, game->window, \
-			game->key, j * SIZE, i * SIZE);
+		put_param(game, game->key, j * SIZE, i * SIZE);
 	if (map == 'E')
 	{
 		if (game->coin > 0)
-			mlx_put_image_to_window(game->connectid, game->window, \
-				game->chest, j * SIZE, i * SIZE);
+			put_param(game, game->chest, j * SIZE, i * SIZE);
 		else
-			mlx_put_image_to_window(game->connectid, game->window, \
-				game->treasure, j * SIZE, i * SIZE);
+			put_param(game, game->treasure, j * SIZE, i * SIZE);
+	}
+	if (!game->exit)
+	{
+		ft_printf("Congratulations, you win!\n");
+		exit(EXIT_SUCCESS);
 	}
 }

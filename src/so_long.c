@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:27:47 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/24 14:32:29 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/29 08:11:02 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	{
 		map = read_map(argv[1], &layout);
 		game.coin = layout.coin;
+		game.exit = layout.exit;
 		if (map)
 			create_window(map, &game, &layout);
 	}

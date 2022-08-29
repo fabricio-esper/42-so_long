@@ -4,7 +4,7 @@ LIBFT	= ./libft/libft.a
 
 CFLAGS	= -Wall -Werror -Wextra
 
-SRCS	= ./src/so_long.c ./src/utils.c ./src/error.c ./src/map.c ./src/window.c
+SRCS	= ./src/so_long.c ./src/utils.c ./src/utils2.c ./src/error.c ./src/map.c ./src/window.c
 
 OBJS	= $(SRCS:.c=.o)
 

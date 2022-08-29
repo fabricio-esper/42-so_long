@@ -3,33 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabricio <fabricio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fesper-s <fesper-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:30:30 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/28 12:09:30 by fabricio         ###   ########.fr       */
+/*   Updated: 2022/08/29 13:32:50 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	get_imgs(t_game *game)
-{
-	int	size;
-
-	size = SIZE;
-	game->grass = mlx_xpm_file_to_image(game->connectid, \
-		"./img/grass.xpm", &size, &size);
-	game->rock = mlx_xpm_file_to_image(game->connectid, \
-		"./img/rock.xpm", &size, &size);
-	game->player = mlx_xpm_file_to_image(game->connectid, \
-		"./img/player.xpm", &size, &size);
-	game->key = mlx_xpm_file_to_image(game->connectid, \
-		"./img/key.xpm", &size, &size);
-	game->chest = mlx_xpm_file_to_image(game->connectid, \
-		"./img/chest.xpm", &size, &size);
-	game->treasure = mlx_xpm_file_to_image(game->connectid, \
-		"./img/treasure.xpm", &size, &size);
-}
 
 void	put_layout(char **map, t_game *game)
 {
@@ -48,29 +29,13 @@ void	put_layout(char **map, t_game *game)
 int	key_event(int key, t_game *game)
 {
 	if (key == RIGHT_KEY)
-	{
-		mlx_clear_window(game->connectid, game->window);
-		move(game, RIGHT_KEY);
-		put_layout(game->map, game);
-	}
+		key_direction(game, RIGHT_KEY);
 	if (key == UP_KEY)
-	{
-		mlx_clear_window(game->connectid, game->window);
-		move(game, UP_KEY);
-		put_layout(game->map, game);
-	}
+		key_direction(game, UP_KEY);
 	if (key == DOWN_KEY)
-	{
-		mlx_clear_window(game->connectid, game->window);
-		move(game, DOWN_KEY);
-		put_layout(game->map, game);
-	}
+		key_direction(game, DOWN_KEY);
 	if (key == LEFT_KEY)
-	{
-		mlx_clear_window(game->connectid, game->window);
-		move(game, LEFT_KEY);
-		put_layout(game->map, game);
-	}
+		key_direction(game, LEFT_KEY);
 	if (key == ESC)
 	{
 		ft_printf("Game closed\n");
@@ -81,38 +46,18 @@ int	key_event(int key, t_game *game)
 
 void	move(t_game *game, int dir)
 {
-	if (dir == RIGHT_KEY && game->map[game->py_position][game->px_position + 1] != '1')
-	{
-		if (game->map[game->py_position][game->px_position + 1] == 'C')
-			game->coin--;
-		game->map[game->py_position][game->px_position] = '0';
-		game->map[game->py_position][++game->px_position] = 'P';
-	}
-	if (dir == UP_KEY && game->map[game->py_position - 1][game->px_position] != '1')
-	{
-		if (game->map[game->py_position - 1][game->px_position] == 'C')
-			game->coin--;
-		game->map[game->py_position][game->px_position] = '0';
-		game->map[--game->py_position][game->px_position] = 'P';
-	}
-	if (dir == DOWN_KEY && game->map[game->py_position + 1][game->px_position] != '1')
-	{
-		if (game->map[game->py_position + 1][game->px_position] == 'C')
-			game->coin--;
-		game->map[game->py_position][game->px_position] = '0';
-		game->map[++game->py_position][game->px_position] = 'P';
-	}
-	if (dir == LEFT_KEY && game->map[game->py_position][game->px_position - 1] != '1')
-	{
-		if (game->map[game->py_position][game->px_position - 1] == 'C')
-			game->coin--;
-		game->map[game->py_position][game->px_position] = '0';
-		game->map[game->py_position][--game->px_position] = 'P';
-	}
-	int i = -1;
-	while (game->map[++i])
-		ft_printf("%s\n", game->map[i]);
-	ft_printf("\n");
+	if (dir == RIGHT_KEY && game->map[game->py_position][game->px_position + 1] \
+		!= '1')
+		one_direction(game, game->py_position, game->px_position + 1);
+	if (dir == UP_KEY && game->map[game->py_position - 1][game->px_position] \
+		!= '1')
+		one_direction(game, game->py_position - 1, game->px_position);
+	if (dir == DOWN_KEY && game->map[game->py_position + 1][game->px_position] \
+		!= '1')
+		one_direction(game, game->py_position + 1, game->px_position);
+	if (dir == LEFT_KEY && game->map[game->py_position][game->px_position - 1] \
+		!= '1')
+		one_direction(game, game->py_position, game->px_position - 1);
 }
 
 char	**map_backup(char **map)
@@ -145,5 +90,6 @@ void	create_window(char **map, t_game *game, t_map *layout)
 	get_imgs(game);
 	put_layout(map, game);
 	mlx_key_hook(game->window, key_event, game);
+	mlx_hook(game->window, 17, 1L << 17, close_win_x, &game);
 	mlx_loop(game->connectid);
 }
