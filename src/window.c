@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:30:30 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/31 09:57:59 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:26:35 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ char	**map_backup(char **map)
 
 void	create_window(char **map, t_game *game, t_map *layout)
 {
+	if (layout->player == 0 || layout->exit == 0 || layout->coin == 0)
+		error_map_content(layout);
 	game->map = map_backup(map);
+	is_wall(layout, game);
 	game->width = layout->width * SIZE;
 	game->height = layout->height * SIZE;
 	game->connectid = mlx_init();
@@ -87,6 +90,6 @@ void	create_window(char **map, t_game *game, t_map *layout)
 	get_imgs(game);
 	put_layout(map, game);
 	mlx_key_hook(game->window, key_event, game);
-	mlx_hook(game->window, 17, 1L << 17, close_win_x, &game);
+	mlx_hook(game->window, 17, 0, close_win_x, game);
 	mlx_loop(game->connectid);
 }

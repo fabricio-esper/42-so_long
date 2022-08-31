@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:13:05 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/29 17:43:16 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/31 10:15:55 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_map	layout_reset(void)
 	layout.height = 0;
 	layout.width = 0;
 	layout.player = 0;
-	layout.enemy = 0;
 	layout.coin = 0;
 	layout.exit = 0;
 	return (layout);
@@ -30,7 +29,6 @@ void	get_layout(t_map *layout, char *line)
 	if (!layout->width)
 		layout->width = ft_strlen(line) - 1;
 	layout->player += count_char(line, 'P');
-	layout->enemy += count_char(line, 'Y');
 	layout->coin += count_char(line, 'C');
 	layout->exit += count_char(line, 'E');
 }

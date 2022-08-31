@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:30:31 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/31 09:56:58 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:27:42 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_map
 	int	height;
 	int	width;
 	int	player;
-	int	enemy;
 	int	coin;
 	int	exit;
 }				t_map;
@@ -97,10 +96,13 @@ void	key_direction(t_game *game, int dir);
 void	one_direction(t_game *game, int y, int x);
 t_game	game_reset(void);
 void	exit_game(t_game *game, char *str);
+void	validate_map(char **map);
 void	file_error(void);
 void	filetype_error(void);
 void	layout_error(void);
 void	split_error(void);
-int		close_win_x(void);
+void	is_wall(t_map *layout, t_game *game);
+void	error_map_content(t_map *layout);
+int		close_win_x(t_game *game);
 
 #endif
