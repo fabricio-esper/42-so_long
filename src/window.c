@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:30:30 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/29 17:50:56 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/31 09:57:59 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ int	key_event(int key, t_game *game)
 	if (key == LEFT_KEY)
 		key_direction(game, LEFT_KEY);
 	if (key == ESC)
-	{
-		ft_printf("Game closed\n");
-		exit(EXIT_SUCCESS);
-	}
+		exit_game(game, "Game closed");
 	return (0);
 }
 

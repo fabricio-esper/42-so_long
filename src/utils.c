@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 10:26:15 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/29 17:44:29 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/31 09:58:29 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,5 @@ void	put_entity(char map, t_game *game, int i, int j)
 			put_param(game, game->treasure, j * SIZE, i * SIZE);
 	}
 	if (!game->exit)
-	{
-		ft_printf("Congratulations, you win!\n");
-		exit(EXIT_SUCCESS);
-	}
+		exit_game(game, "Congratulations, you win!");
 }

@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:45:03 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/29 18:00:13 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/08/31 09:58:59 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,4 @@ void	one_direction(t_game *game, int y, int x)
 	game->px_position = x;
 		game->map[y][x] = 'P';
 	}
-}
-
-int	close_win_x(void)
-{
-	ft_printf("Game closed\n");
-	exit(EXIT_SUCCESS);
-	return (0);
 }
