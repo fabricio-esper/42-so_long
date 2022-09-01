@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 08:40:15 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/31 13:33:36 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/01 09:17:30 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,5 @@ void	split_error(void)
 {
 	ft_putstr_fd("Error\nSplit failed", 2);
 	ft_putchar_fd('\n', 2);
-	exit(EXIT_FAILURE);
-}
-
-void	error_map_content(t_map *layout)
-{
-	ft_putstr_fd("Error\n", 2);
-	if (layout->player == 0)
-		ft_putstr_fd("No players found\n", 2);
-	if (layout->exit == 0)
-		ft_putstr_fd("No exit found\n", 2);
-	if (layout->coin == 0)
-		ft_putstr_fd("No key found\n", 2);
 	exit(EXIT_FAILURE);
 }

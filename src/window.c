@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:30:30 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/31 14:26:35 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/01 13:26:16 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ char	**map_backup(char **map)
 
 void	create_window(char **map, t_game *game, t_map *layout)
 {
-	if (layout->player == 0 || layout->exit == 0 || layout->coin == 0)
-		error_map_content(layout);
+	is_rectangle(map);
+	error_map_content(layout);
+	is_wall(layout, map);
 	game->map = map_backup(map);
-	is_wall(layout, game);
 	game->width = layout->width * SIZE;
 	game->height = layout->height * SIZE;
 	game->connectid = mlx_init();

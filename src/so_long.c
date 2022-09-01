@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:27:47 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/31 14:27:35 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/01 09:16:59 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,28 +53,6 @@ void	validate_map(char **map)
 				exit(EXIT_FAILURE);
 			}
 		}
-	}
-}
-
-void	is_wall(t_map *layout, t_game *game)
-{
-	int	i;
-	int	j;
-	int	rows;
-	int	cols;
-
-	cols = layout->width - 1;
-	rows = layout->height - 1;
-	i = 0;
-	j = 0;
-	while (game->map[i][0] == '1' && game->map[i][cols] == '1' && i < rows)
-		i++;
-	while (game->map[0][j] == '1' && game->map[rows][j] == '1' && j <= cols)
-		j++;
-	if (i != rows || j - 1 != cols)
-	{
-		ft_putstr_fd("Error\nMissing wall\n", 2);
-		exit(EXIT_FAILURE);
 	}
 }
 
