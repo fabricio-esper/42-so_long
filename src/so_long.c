@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:27:47 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/09/01 09:16:59 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:14:46 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,23 @@ void	validate_map(char **map)
 	}
 }
 
+void	free_game(t_game *game)
+{
+	mlx_destroy_image(game->connectid, game->player);
+	mlx_destroy_image(game->connectid, game->grass);
+	mlx_destroy_image(game->connectid, game->rock);
+	mlx_destroy_image(game->connectid, game->key);
+	mlx_destroy_image(game->connectid, game->chest);
+	mlx_destroy_image(game->connectid, game->treasure);
+	free(game->connectid);
+	free_map(game->map);
+}
+
 void	exit_game(t_game *game, char *str)
 {
 	mlx_clear_window(game->connectid, game->window);
 	mlx_destroy_window(game->connectid, game->window);
+	free_game(game);
 	ft_printf("%s\n", str);
 	exit(EXIT_SUCCESS);
 }
@@ -68,6 +81,7 @@ int	close_win_x(t_game *game)
 {
 	mlx_clear_window(game->connectid, game->window);
 	mlx_destroy_window(game->connectid, game->window);
+	free_game(game);
 	ft_printf("Game closed\n");
 	exit(EXIT_SUCCESS);
 	return (0);

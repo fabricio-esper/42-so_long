@@ -6,31 +6,36 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 08:33:43 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/17 12:42:32 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:19:26 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_wordcount(char const *s, char c)
+static int	ft_wordcount(char const *s, char c)
 {
-	size_t	i;
-	size_t	wordnbr;
+	int	i;
+	int	wordnbr;
 
 	i = 0;
 	wordnbr = 0;
 	while (s[i])
 	{
-		if (s[i] != c && (s[i - 1] == c || i == 0))
+		if (!(s[i] == c))
+		{
 			wordnbr++;
-		i++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
+		else
+			i++;
 	}
 	return (wordnbr);
 }
 
-static size_t	ft_lencount(char const *s, char c)
+static int	ft_lencount(char const *s, char c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i] && s[i] != c)
@@ -41,8 +46,8 @@ static size_t	ft_lencount(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 
 	if (!s)
 		return (0);

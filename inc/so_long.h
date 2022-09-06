@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:30:31 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/09/01 13:25:20 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/06 09:23:39 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void	put_param(t_game *game, char *param, int x, int y);
 void	key_direction(t_game *game, int dir);
 void	one_direction(t_game *game, int y, int x);
 t_game	game_reset(void);
+void	free_game(t_game *game);
+void	free_map(char **map);
 void	exit_game(t_game *game, char *str);
 void	validate_map(char **map);
 void	file_error(void);

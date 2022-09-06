@@ -6,11 +6,23 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:45:03 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/31 09:58:59 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/06 13:11:32 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+t_map	layout_reset(void)
+{
+	t_map	layout;
+
+	layout.height = 0;
+	layout.width = 0;
+	layout.player = 0;
+	layout.coin = 0;
+	layout.exit = 0;
+	return (layout);
+}
 
 t_game	game_reset(void)
 {

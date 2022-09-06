@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 10:26:15 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/31 14:26:08 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:20:10 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,6 @@ int	ft_strrncmp(const char *s1, const char *s2, size_t n)
 		size_s2--;
 	}
 	return (0);
-}
-
-char	*join_layouts(char *s1, char *s2)
-{
-	char	*new_str;
-	size_t	len_s1;
-	size_t	len_s2;
-
-	if (!s1)
-		s1 = ft_calloc(1, sizeof(char));
-	if (!s2)
-		return (0);
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	new_str = malloc((len_s1 + len_s2 + 1) * sizeof(char));
-	if (new_str == 0)
-		return (0);
-	ft_strlcpy(new_str, s1, len_s1 + 1);
-	ft_strlcat(new_str, s2, len_s1 + len_s2 + 1);
-	free(s1);
-	free(s2);
-	return (new_str);
 }
 
 int	count_char(char *str, int c)
@@ -101,4 +79,18 @@ void	put_entity(char map, t_game *game, int i, int j)
 	}
 	if (!game->exit)
 		exit_game(game, "Congratulations, you win!");
+}
+
+void	put_layout(char **map, t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+			put_entity(map[i][j], game, i, j);
+	}
 }

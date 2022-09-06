@@ -6,22 +6,32 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:13:05 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/08/31 10:15:55 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:20:04 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_map	layout_reset(void)
+char	*join_layouts(char *s1, char *s2)
 {
-	t_map	layout;
+	char	*new_str;
+	size_t	len_s1;
+	size_t	len_s2;
 
-	layout.height = 0;
-	layout.width = 0;
-	layout.player = 0;
-	layout.coin = 0;
-	layout.exit = 0;
-	return (layout);
+	if (!s1)
+		s1 = ft_calloc(1, sizeof(char));
+	if (!s2)
+		return (0);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	new_str = malloc((len_s1 + len_s2 + 1) * sizeof(char));
+	if (new_str == 0)
+		return (0);
+	ft_strlcpy(new_str, s1, len_s1 + 1);
+	ft_strlcat(new_str, s2, len_s1 + len_s2 + 1);
+	free(s1);
+	free(s2);
+	return (new_str);
 }
 
 void	get_layout(t_map *layout, char *line)
