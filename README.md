@@ -1,7 +1,9 @@
 # 42-so_long - 100% ✅
 This project is a small 2D game with minilibx (École 42's graphic lib). Aims to learn about textures, sprites and tiles.
 
-![Imagem do projeto so_long feito na 42 Rio](./img/so_long.png)
+<div align="center">
+<img src="https://github.com/fesper-s/fesper-s.github.io/blob/main/assets/so_long.png">
+</div>
 
 ## Requirements
 ### Linux/Debian
