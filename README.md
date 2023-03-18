@@ -6,6 +6,7 @@ This project is a small 2D game with minilibx (École 42's graphic lib). Aims to
 </div>
 
 ## Requirements
+so_long project only runs on MacOS or Linux.
 ### Linux/Debian
 ```
 sudo apt install gcc make xorg libxext-dev libbsd-dev
