@@ -2,7 +2,7 @@
 This project is a small 2D game with minilibx (École 42's graphic lib). Aims to learn about textures, sprites and tiles.
 
 <div align="center">
-<img src="https://github.com/fesper-s/fesper-s.github.io/blob/main/assets/so_long.png">
+<img width=500 src="./img/so_long.png">
 </div>
 
 ## Requirements
