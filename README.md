@@ -1,16 +1,20 @@
+<div align="center">
+<a><img height="120px" src="https://github.com/fesper-s/fesper-s/blob/main/src/42_badges/so_longe.png"></a>
+
 # 42-so_long - 100% ✅
+</div>
 This project is a small 2D game with minilibx (École 42's graphic lib). Aims to learn about textures, sprites and tiles.
 
-<div align="center">
-<img width=500 src="./img/so_long.png">
-</div>
+<br><div align="center"><img width=500 src="./img/so_long.png"></div>
 
 ## Requirements
-so_long project only runs on MacOS or Linux.
 ### Linux/Debian
 ```
 sudo apt install gcc make xorg libxext-dev libbsd-dev
 ```
+
+### Windows 10/11 (with WSL2)
+Follow the instructions from this repository https://github.com/codam-coding-college/MLX42
 
 ## Usage
 `make` and execute `./so_long maps/mapfile.ber`. For example:
