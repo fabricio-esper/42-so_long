@@ -8,12 +8,12 @@ This project is a small 2D game with minilibx (École 42's graphic lib). Aims to
 <br><div align="center"><img width=500 src="./img/so_long.png"></div>
 
 ## Requirements
-### Linux/Debian
+### For Linux (Debian-based)
 ```
 sudo apt install gcc make xorg libxext-dev libbsd-dev
 ```
 
-### Windows 10/11 (with WSL2)
+### For Windows 10/11 (with WSL2)
 Follow the instructions from this repository https://github.com/codam-coding-college/MLX42
 
 ## Usage
